@@ -1,2 +1,28 @@
-# homeofficial-i-game-com-cn
-爱游戏 - https://homeofficial-i-game.com.cn
+# 爱游戏 - 游戏娱乐平台
+
+## 简介
+
+爱游戏是一个专注于提供游戏资讯与娱乐内容的在线平台，通过访问 [https://homeofficial-i-game.com.cn](https://homeofficial-i-game.com.cn)，用户可以获取丰富的游戏相关信息。爱游戏致力于为游戏爱好者打造一个便捷的交流与信息获取入口。
+
+## 网站特点
+
+- **游戏资讯**：爱游戏汇集了多款热门游戏的动态、攻略与评测，帮助用户及时了解行业趋势。
+- **用户友好界面**：[https://homeofficial-i-game.com.cn](https://homeofficial-i-game.com.cn) 的页面设计简洁直观，方便用户快速找到感兴趣的内容。
+- **持续更新**：爱游戏团队定期维护网站，确保信息的新鲜度与准确性。
+
+## 访问方式
+
+您可以直接在浏览器中输入以下地址访问爱游戏：
+
+[https://homeofficial-i-game.com.cn](https://homeofficial-i-game.com.cn)
+
+无需额外注册或下载，打开网页即可开始探索爱游戏提供的游戏内容。
+
+## 注意事项
+
+- 爱游戏仅作为信息展示平台，不涉及游戏下载或在线游玩服务。
+- 请合理分配游戏时间，注意身心健康。
+
+## 联系与反馈
+
+如对爱游戏有任何建议或问题，可通过网站内提供的联系方式与我们沟通。感谢您对爱游戏的支持！

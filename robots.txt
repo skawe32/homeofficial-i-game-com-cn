@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://skawe32.github.io/homeofficial-i-game-com-cn/sitemap.xml
