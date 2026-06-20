@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>再访 JRS直播 · 持续关注的起点</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f4f9fc;
+            color: #1d2b3a;
+            line-height: 1.6;
+            padding: 0 16px;
+        }
+
+        .page {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 40px 0 60px;
+        }
+
+        /* 网格卡片氛围 */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            background-image: 
+                linear-gradient(rgba(0, 168, 150, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 168, 150, 0.03) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* hero 区域 —— 开场短句 */
+        .hero {
+            margin-bottom: 48px;
+            padding-top: 24px;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: rgba(0, 160, 145, 0.08);
+            color: #0a7a6b;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            padding: 4px 14px;
+            border-radius: 30px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(0, 160, 145, 0.15);
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 650;
+            letter-spacing: -0.3px;
+            line-height: 1.2;
+            color: #0a2e2e;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 span {
+            color: #008577;
+            border-bottom: 2px solid rgba(0, 133, 119, 0.25);
+        }
+
+        .hero .sub {
+            font-size: 1.05rem;
+            color: #2d4a4a;
+            max-width: 640px;
+            background: rgba(255,255,255,0.5);
+            padding: 6px 0;
+            border-radius: 8px;
+        }
+
+        /* 承接段落 — 再次访问与收藏 */
+        .intro-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 32px 28px;
+            margin-bottom: 36px;
+            box-shadow: 0 4px 16px rgba(0, 80, 70, 0.05), 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .intro-card p {
+            margin-bottom: 18px;
+            font-size: 1rem;
+        }
+
+        .intro-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro-card strong {
+            color: #006b5e;
+            font-weight: 600;
+        }
+
+        .highlight-link {
+            color: #008577;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px dotted #00857766;
+            transition: border 0.15s, color 0.15s;
+        }
+
+        .highlight-link:hover {
+            color: #005f50;
+            border-bottom: 1px solid #005f50;
+        }
+
+        /* 特点列表 —— 网格卡片 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+            margin-bottom: 48px;
+        }
+
+        @media (min-width: 520px) {
+            .feature-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .feature-item {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 24px 22px;
+            box-shadow: 0 2px 12px rgba(0, 100, 85, 0.04);
+            border: 1px solid #e1f0ec;
+            transition: box-shadow 0.2s, transform 0.15s;
+        }
+
+        .feature-item:hover {
+            box-shadow: 0 6px 20px rgba(0, 128, 110, 0.07);
+            transform: translateY(-2px);
+            border-color: #b6dbd2;
+        }
+
+        .feature-item .icon {
+            display: inline-block;
+            background: #d7f0ea;
+            color: #006652;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 40px;
+            margin-bottom: 12px;
+            letter-spacing: 0.2px;
+        }
+
+        .feature-item h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #103d36;
+            margin-bottom: 6px;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #2b4a42;
+            line-height: 1.5;
+        }
+
+        /* 温和提示 + FAQ 摘要 */
+        .footnote-card {
+            background: #e5f3ef;
+            border-radius: 28px;
+            padding: 28px 26px;
+            margin-bottom: 48px;
+            border-left: 4px solid #008577;
+        }
+
+        .footnote-card h4 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #024b40;
+            margin-bottom: 12px;
+        }
+
+        .footnote-card p, .footnote-card .faq-summary {
+            font-size: 0.98rem;
+            color: #203e38;
+        }
+
+        .faq-summary {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .faq-item {
+            padding: 10px 14px;
+            background: rgba(255,255,255,0.45);
+            border-radius: 16px;
+        }
+
+        .faq-item span {
+            font-weight: 550;
+            color: #006652;
+        }
+
+        /* 结尾收藏提示 */
+        .closing-note {
+            text-align: center;
+            background: #ffffffd9;
+            backdrop-filter: blur(2px);
+            padding: 28px 18px;
+            border-radius: 60px 60px 20px 20px;
+            box-shadow: 0 0 0 1px #d4e8e2 inset;
+        }
+
+        .closing-note p {
+            font-size: 1rem;
+            color: #1b4540;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .closing-note .bookmark-tip {
+            margin-top: 14px;
+            font-size: 0.9rem;
+            color: #3a6d63;
+            background: #d9f0ea;
+            display: inline-block;
+            padding: 6px 20px;
+            border-radius: 50px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #cdddd6;
+            margin: 32px 0 20px;
+        }
+
+        .footer-small {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #66857a;
+            padding-top: 18px;
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .intro-card {
+                padding: 24px 18px;
+            }
+            .feature-item {
+                padding: 20px 16px;
+            }
+            .footnote-card {
+                padding: 22px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    <div class="page content">
+
+        <!-- hero -->
+        <div class="hero">
+            <div class="tagline">📌 再次回来 · 依旧熟悉</div>
+            <h1>你收藏的 <span>JRS直播</span>，<br>始终在这里。</h1>
+            <div class="sub">一个稳定的入口，持续陪伴赛季与日常。</div>
+        </div>
+
+        <!-- 承接段落：重新访问与收藏价值 -->
+        <div class="intro-card">
+            <p>无论是新赛季揭幕，还是深夜忽然想回顾一场关键对决，很多人都会习惯性地打开浏览器，输入那个已经存在收藏夹里的名字——<a href="https://cn-official-jrs.com" class="highlight-link">JRS直播</a>。</p>
+            <p>在信息流快速翻新的今天，一个值得反复回访的直播资源，往往是基于清晰的结构、相对克制的界面，以及始终可用的访问路径。<strong>保持关注</strong>并不是一件理所当然的事，它需要站点本身足够可靠，也需要用户愿意把入口放在顺手的位置。</p>
+            <p>域名 <strong>cn-official-jrs.com</strong> 正是为此设计：简洁、直观，没有多余的跳转。把它加入书签或设为主页，比起每次临时搜索，能节省不少时间。</p>
+        </div>
+
+        <!-- 特点卡片网格 -->
+        <div class="feature-grid">
+            <div class="feature-item">
+                <div class="icon">⚡ 稳定</div>
+                <h3>持续可用的地址</h3>
+                <p>主域名保持长期解析，避免频繁更换带来的困扰。你只需要记住一个链接。</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">📱 多端适配</div>
+                <h3>移动端友好</h3>
+                <p>页面针对手机与平板优化，横竖屏均可快速浏览，全屏播放也不拥挤。</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">🧭 低干扰导航</div>
+                <h3>聚焦内容本身</h3>
+                <p>没有过度装饰的弹窗或复杂菜单，频道列表清晰，切换直播源更直接。</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">🔖 收藏即用</div>
+                <h3>一键书签</h3>
+                <p>添加至浏览器收藏夹或桌面快捷方式，下次只需单击即可直达。</p>
+            </div>
+        </div>
+
+        <!-- 温和提示 + FAQ 摘要 -->
+        <div class="footnote-card">
+            <h4>📖 关于持续关注，你可能想问</h4>
+            <div class="faq-summary">
+                <div class="faq-item"><span>Q：</span>为什么推荐直接收藏域名？<br>搜索可能会遇到旧地址或无关结果，而保存主域名能减少中间步骤。</div>
+                <div class="faq-item"><span>Q：</span>页面会经常变化吗？<br>结构保持相对稳定，但直播源会随着赛事动态更新，刷新页面即可获取最新列表。</div>
+                <div class="faq-item"><span>Q：</span>移动端和桌面体验一致吗？<br>核心功能一致，移动端针对触摸操作略微调整了按钮与字体大小。</div>
+            </div>
+        </div>
+
+        <!-- 温和结尾：再次邀请收藏与关注 -->
+        <div class="closing-note">
+            <p>把 <a href="https://cn-official-jrs.com" class="highlight-link">JRS直播</a> 放在手边，<br>就像随身携带一个不会打烊的赛事窗口。</p>
+            <div class="bookmark-tip">⭐ 现在将它加入书签 · 下次见</div>
+        </div>
+
+        <hr>
+        <div class="footer-small">
+            cn-official-jrs.com · 简洁 · 持续 · 可回访
+        </div>
+    </div>
+</body>
+</html>
